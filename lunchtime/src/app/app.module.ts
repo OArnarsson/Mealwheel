@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { OptionActivePipe } from './pipes/option-active.pipe';
 import { AvailablePipe } from './pipes/available.pipe';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
@@ -20,7 +18,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   imports: [
     BrowserModule,
     ChartsModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

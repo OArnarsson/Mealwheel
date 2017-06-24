@@ -2,7 +2,6 @@ export class FoodOption {
   // Basics
   name: string;
   active: boolean;
-
   // Expansion?
   healty: boolean;
   location: string;

@@ -40,7 +40,10 @@ export class HomeComponent {
       this.chart.chart.options.rotation = Math.random() * 360;
       this.chart.chart.update();
       this.readyToSpin = false;
-      setTimeout(() => { this.readyToSpin = true; }, 30 * 1000);
+      this.chart.chart.options.animation.duration = 1000;
+      setTimeout(() => {
+        this.readyToSpin = true;
+      }, 30 * 1000);
     }
   }
 
