@@ -1,0 +1,25 @@
+<div class="superContainer">
+  <div class="titleContainer" (click)="spinToWin()">
+    <h1 class="title">Lunchtime</h1>
+  </div>
+
+  <div class="wheelContainer">
+    <div class="needle"></div>
+    <canvas
+            baseChart
+            [data]="pieData"
+            [labels]="pieLabels"
+            [chartType]="pieType"
+            [legend] = false
+            [options] = "pieOptions">
+    </canvas>
+  </div>
+
+  <div class="optionsContainer">
+    <ul>
+      <li class="option" *ngFor="let option of options" (click)="toggleOption(option)">
+        <div><p>{{option.name}}</p> <p class="active">{{option.active | optionActive}}</p></div>
+      </li>
+    </ul>
+  </div>
+</div>

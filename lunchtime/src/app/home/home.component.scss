@@ -1,0 +1,150 @@
+@import '../../variables';
+
+.superContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 5px 30px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    border: 2px solid $color-second;
+    background-color: $color-first;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+      background-color: $color-second;
+      .title {
+        color: $color-first
+      }
+    }
+
+    .title {
+      margin: 0;
+      padding: 0;
+
+      text-transform: uppercase;
+      font-family: 'Syncopate', cursive;
+      text-align: center;
+      letter-spacing: 10px;
+      color: $color-second;
+
+      @include xl-min {
+        font-size: 5rem;
+      }
+      @include xl-min {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .wheelContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+    @include md-min {
+      width: 35%;
+      height: 35%;
+      margin-top: 50px;
+    }
+
+    @include sm-max {
+      width: 75%;
+      height: 75%;
+      margin-top: 50px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: block;
+      background: $color-first;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: -1;
+      opacity: .85;
+    }
+
+    .needle {
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: 3;
+
+      @include md-min {
+        top: -35px;
+        left: calc(50% - 20px);
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 50px solid rgba(255, 255, 255, .9);
+      }
+
+      @include sm-max {
+        top: -20px;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 35px solid rgba(255, 255, 255, .9);
+      }
+    }
+  }
+
+  .optionsContainer {
+    display: flex;
+
+    max-width: 80%;
+
+    margin: 0 auto;
+
+    border: 2px solid $color-second;
+    background-color: $color-first;
+    border-radius: 5px;
+
+    @include md-min {
+      margin-top: 50px;
+    }
+    @include sm-max {
+      margin-top: 30px;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+
+      margin: 0;
+      padding: 10px;
+      padding-right: 0;
+
+      list-style: none;
+
+      li {
+        padding: 0;
+        margin: 0;
+        margin-right: 15px;
+
+        text-align: center;
+        color: $color-second;
+
+        p {
+          font-size: 18px;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}
