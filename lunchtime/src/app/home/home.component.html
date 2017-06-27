@@ -5,13 +5,12 @@
 
   <div class="wheelContainer">
     <div class="needle"></div>
-    <canvas
-            baseChart
-            [data]="pieData"
-            [labels]="pieLabels"
-            [chartType]="pieType"
-            [legend] = false
-            [options] = "pieOptions">
+    <canvas baseChart
+            [chartType] = "pieType"
+            [data] =      "pieData"
+            [colors] =    "pieColors.wholeThang"
+            [labels] =    "pieLabels"
+            [options] =   "pieOptions">
     </canvas>
   </div>
 
