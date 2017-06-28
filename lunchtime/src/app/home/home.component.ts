@@ -71,10 +71,16 @@ export class HomeComponent {
     this.chart.chart.update();
   }
 
+  debugOption(option) {
+    console.log(option);
+  }
+
   updateData() {
     this.pieLabels = this.options.map(option => option.name);
     this.pieData = this.options.map(option => option.value);
     this.pieColors[0] = {backgroundColor: this.options.map(option => option.color)};
     this.pieColors[1] = {hoverBackgroundColor: this.options.map(option => option.hoverColor)};
+    let that = this;
+    setTimeout(() => {that.chart.chart.update()}, 200)
   }
 }

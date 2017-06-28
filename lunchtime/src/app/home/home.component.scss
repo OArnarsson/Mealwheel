@@ -142,7 +142,6 @@
 
       margin: 0;
       padding: 10px;
-      padding-right: 0;
 
       list-style: none;
 
@@ -155,9 +154,13 @@
         color: $color-second;
 
         .name {
+          max-width: 150px;
           border-radius: 5px;
+          border: none;
+          text-align: center;
+          font-size: 18px;
+          font-family: "Oxygen";
           color: #fff;
-          font-weight: 500;
           padding: 2px 5px;
         }
 

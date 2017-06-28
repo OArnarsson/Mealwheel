@@ -7,6 +7,7 @@ import { OptionActivePipe } from './pipes/option-active.pipe';
 import { AvailablePipe } from './pipes/available.pipe';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ColorPickerModule } from 'angular4-color-picker'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   imports: [
     BrowserModule,
     ChartsModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

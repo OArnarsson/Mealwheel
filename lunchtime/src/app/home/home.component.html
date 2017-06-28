@@ -19,7 +19,13 @@
       <li class="option" *ngFor="let option of options">
         <div>
           <button (click)="updateOptionValue(option, true)">👍</button>
-          <p class="name" [ngStyle]="{background: option.color}">{{option.name}}</p>
+          <p><input class="name" [(colorPicker)]="option.color"
+                    [cpPosition]="'top'"
+                    [cpOutputFormat]="'rgba'"
+                    [style.background]="option.color"
+                    value="{{option.name}}"
+                    (colorPickerChange)="debugOption(option)"/></p>
+
           <p class="active">{{option.value | optionActive}}</p>
           <button (click)="updateOptionValue(option, false)">👎</button>
         </div>
