@@ -6,17 +6,17 @@
   <div class="wheelContainer">
     <div class="needle"></div>
     <canvas baseChart
-            [chartType] = "pieType"
-            [data] =      "pieData"
-            [colors] =    "pieColors"
-            [labels] =    "pieLabels"
-            [options] =   "pieOptions">
+            [chartType] = "foodChart.pieType"
+            [data] =      "foodChart.pieData"
+            [colors] =    "foodChart.pieColors"
+            [labels] =    "foodChart.pieLabels"
+            [options] =   "foodChart.pieOptions">
     </canvas>
   </div>
 
   <div class="optionsContainer">
     <ul>
-      <li class="option" *ngFor="let option of options">
+      <li class="option" *ngFor="let option of foodChart.foodOptions">
         <div>
           <button (click)="updateOptionValue(option, true)">👍</button>
           <p class="name" [ngStyle]="{background: option.color}">{{option.name}}</p>
