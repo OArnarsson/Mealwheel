@@ -8,7 +8,7 @@
     <canvas baseChart
             [chartType] = "pieType"
             [data] =      "pieData"
-            [colors] =    "pieColors.wholeThang"
+            [colors] =    "pieColors"
             [labels] =    "pieLabels"
             [options] =   "pieOptions">
     </canvas>
@@ -17,7 +17,7 @@
   <div class="optionsContainer">
     <ul>
       <li class="option" *ngFor="let option of options" (click)="toggleOption(option)">
-        <div><p>{{option.name}}</p> <p class="active">{{option.active | optionActive}}</p></div>
+        <div><p>{{option.name}}</p> <p class="active">{{option.value | optionActive}}</p></div>
       </li>
     </ul>
   </div>

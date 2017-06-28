@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OptionActivePipe implements PipeTransform {
 
-  transform(value: boolean): string {
-    if (value) return '✔';
+  transform(value: number): string {
+    if (value > 0) return '✔';
     return '❌';
   }
 

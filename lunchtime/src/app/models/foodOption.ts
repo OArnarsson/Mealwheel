@@ -1,7 +1,7 @@
 export class FoodOption {
   // Basics
   name: string;
-  active: boolean;
+  value: number;
   color: string;
   hoverColor: string;
   // Expansion?
@@ -10,7 +10,7 @@ export class FoodOption {
   logo: string;
 
   constructor(name: string,
-              active: boolean = true,
+              value: number = 1,
               color: string = '#fff',
               hoverColor: string = '#fff',
               healty: boolean = false,
@@ -18,7 +18,7 @@ export class FoodOption {
               logo: string = '')
   {
     this.name = name;
-    this.active = active;
+    this.value = value;
     this.color = color;
     this.hoverColor = hoverColor;
     this.healty = healty;

@@ -15,7 +15,8 @@ export class HomeComponent {
   public chart: BaseChartDirective;
   options: FoodOption[] = [];
   readyToSpin: boolean = true;
-  pieColors: PieColor = new PieColor;
+
+  pieColors: any[] = [];
   pieData: number[] = [];
   pieLabels: string[] = [];
   pieType: string = 'pie';
@@ -40,21 +41,15 @@ export class HomeComponent {
     };
 
   constructor() {
-    this.options.push((new FoodOption('Saffran', true, 'rgba(255, 155, 0, .45)',  'rgba(255, 155, 0, .7)')));
-    this.options.push((new FoodOption('Dominos', true, 'rgba(0, 109, 255, .45)',  'rgba(0, 109, 255, .7)')));
-    this.options.push((new FoodOption('Wok on',  true, 'rgba(204, 0, 0, .45)',    'rgba(204,0,0, .7)')));
-    this.options.push((new FoodOption('Serrano', true, 'rgba(165, 90, 30, .45)',  'rgba(165, 90, 30, .7)')));
-    this.options.push((new FoodOption('Subway',  true, 'rgba(0, 255, 150, .45)',  'rgba(0, 255, 150, .7)')));
-    this.options.push((new FoodOption('Búllan',  true, 'rgba(255, 0, 0, .45)',    'rgba(255,0,0, .7)')));
-    this.options.push((new FoodOption('Krónan',  true, 'rgba(255, 255, 0, .45)',  'rgba(255,255,0, .7)')));
-    this.options.push((new FoodOption('Nova',    true, 'rgba(196, 24, 255, .45)', 'rgba(196, 24, 255, .7)')));
-
-    for (let option of this.options) {
-      this.pieLabels.push(option.name);
-      this.pieColors.backgroundColor.push(option.color);
-      this.pieColors.hoverBackgroundColor.push(option.hoverColor);
-      this.pieData.push(1);
-    }
+    this.options.push((new FoodOption('Saffran', 1, 'rgba(255, 155, 0, .45)',  'rgba(255, 155, 0, .7)')));
+    this.options.push((new FoodOption('Dominos', 1, 'rgba(0, 109, 255, .45)',  'rgba(0, 109, 255, .7)')));
+    this.options.push((new FoodOption('Wok on',  1, 'rgba(204, 0, 0, .45)',    'rgba(204,0,0, .7)')));
+    this.options.push((new FoodOption('Serrano', 1, 'rgba(165, 90, 30, .45)',  'rgba(165, 90, 30, .7)')));
+    this.options.push((new FoodOption('Subway',  1, 'rgba(0, 255, 150, .45)',  'rgba(0, 255, 150, .7)')));
+    this.options.push((new FoodOption('Búllan',  1, 'rgba(255, 0, 0, .45)',    'rgba(255,0,0, .7)')));
+    this.options.push((new FoodOption('Krónan',  1, 'rgba(255, 255, 0, .45)',  'rgba(255,255,0, .7)')));
+    this.options.push((new FoodOption('Nova',    1, 'rgba(196, 24, 255, .45)', 'rgba(196, 24, 255, .7)')));
+    this.updateData();
   }
 
   spinToWin() {
@@ -70,15 +65,17 @@ export class HomeComponent {
   }
 
   toggleOption(option: FoodOption) {
-    if (option.active) {
-      option.active = false;
-      this.pieData[this.options.indexOf(option)] = 0;
-      this.chart.chart.update();
-    } else {
-      option.active = true;
-      this.pieData[this.options.indexOf(option)] = 1;
-    }
+    if (option.value > 0) option.value -= 1;
+    else option.value += 1;
 
+    this.updateData();
     this.chart.chart.update();
+  }
+
+  updateData() {
+    this.pieLabels = this.options.map(option => option.name);
+    this.pieData = this.options.map(option => option.value);
+    this.pieColors[0] = {backgroundColor: this.options.map(option => option.color)};
+    this.pieColors[1] = {hoverBackgroundColor: this.options.map(option => option.hoverColor)};
   }
 }
