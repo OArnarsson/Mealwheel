@@ -5,18 +5,26 @@
 
   <div class="wheelContainer">
     <div class="needle"></div>
+    <div class="pieSwitches">
+      <button class="prev" (click)="switchChart(false)"><</button>
+      <button class="next" (click)="switchChart(true)">></button>
+    </div>
+
     <canvas baseChart
-            [chartType] = "foodChart.pieType"
-            [data] =      "foodChart.pieData"
-            [colors] =    "foodChart.pieColors"
-            [labels] =    "foodChart.pieLabels"
-            [options] =   "foodChart.pieOptions">
+            [chartType] = "activeChart.pieType"
+            [data] =      "activeChart.pieData"
+            [colors] =    "activeChart.pieColors"
+            [labels] =    "activeChart.pieLabels"
+            [options] =   "activeChart.pieOptions">
     </canvas>
   </div>
 
+      <button class="next" (click)="makeNewChart()">new?</button>
+
+
   <div class="optionsContainer">
     <ul>
-      <li class="option" *ngFor="let option of foodChart.foodOptions">
+      <li class="option" *ngFor="let option of activeChart.foodOptions">
         <div>
           <button (click)="updateOptionValue(option, true)">👍</button>
           <p class="name" [ngStyle]="{background: option.color}">{{option.name}}</p>
