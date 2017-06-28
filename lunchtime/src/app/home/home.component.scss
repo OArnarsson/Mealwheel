@@ -115,10 +115,24 @@
     border-radius: 5px;
 
     @include md-min {
-      margin-top: 50px;
+      margin-top: 30px;
     }
     @include sm-max {
-      margin-top: 30px;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 23px;
+      height: 23px;
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: none;
+      font-size: 18px;
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
 
     ul {
@@ -139,6 +153,19 @@
 
         text-align: center;
         color: $color-second;
+
+        .name {
+          border-radius: 5px;
+          color: #fff;
+          font-weight: 500;
+          padding: 2px 5px;
+        }
+
+        .active {
+          height: 23px;
+        }
+
+
 
         p {
           font-size: 18px;

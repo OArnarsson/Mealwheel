@@ -16,8 +16,13 @@
 
   <div class="optionsContainer">
     <ul>
-      <li class="option" *ngFor="let option of options" (click)="toggleOption(option)">
-        <div><p>{{option.name}}</p> <p class="active">{{option.value | optionActive}}</p></div>
+      <li class="option" *ngFor="let option of options">
+        <div>
+          <button (click)="updateOptionValue(option, true)">👍</button>
+          <p class="name" [ngStyle]="{background: option.color}">{{option.name}}</p>
+          <p class="active">{{option.value | optionActive}}</p>
+          <button (click)="updateOptionValue(option, false)">👎</button>
+        </div>
       </li>
     </ul>
   </div>

@@ -8,21 +8,24 @@ export class FoodOption {
   healty: boolean;
   location: string;
   logo: string;
+  url: string;
 
   constructor(name: string,
               value: number = 1,
               color: string = '#fff',
               hoverColor: string = '#fff',
               healty: boolean = false,
-              location: string = '',
-              logo: string = '')
-  {
+              logo?: string,
+              url?: string,
+              location?: string)
+{
     this.name = name;
     this.value = value;
     this.color = color;
     this.hoverColor = hoverColor;
     this.healty = healty;
     this.location = location;
-    this.logo = logo;
+    this.logo = logo
+    this.url = url;
   }
 }

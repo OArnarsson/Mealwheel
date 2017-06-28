@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FoodOption} from "../models/foodOption";
 import {BaseChartDirective} from "ng2-charts";
-import {PieColor} from "app/models/pieColor";
 import '../../../node_modules/chart.piecelabel.js/src/Chart.PieceLabel.js';
 
 @Component({
@@ -64,9 +63,9 @@ export class HomeComponent {
     }
   }
 
-  toggleOption(option: FoodOption) {
-    if (option.value > 0) option.value -= 1;
-    else option.value += 1;
+  updateOptionValue(option: FoodOption, increase: true) {
+    if (increase) option.value += 1;
+    else if (option.value > 0) option.value -= 1;
 
     this.updateData();
     this.chart.chart.update();

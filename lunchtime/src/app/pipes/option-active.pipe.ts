@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OptionActivePipe implements PipeTransform {
 
   transform(value: number): string {
-    if (value > 0) return '✔';
+    if (value > 0) return value.toString();
     return '❌';
   }
 
