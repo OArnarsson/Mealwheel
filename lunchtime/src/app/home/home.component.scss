@@ -101,6 +101,29 @@
         border-top: 35px solid rgba(255, 255, 255, .9);
       }
     }
+
+    .pieSwitches {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+
+      button {
+        position: absolute;
+        font-size: 28px;
+        padding: 5px 10px 8px 8px;
+        background: $color-first;
+        border: 1px solid $color-second;
+        color: $color-second;
+      }
+      
+      .prev {
+        left: -15%;
+      }
+      .next {
+        right: -15%;
+      }
+    }
   }
 
   .optionsContainer {
